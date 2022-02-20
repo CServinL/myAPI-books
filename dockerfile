@@ -11,7 +11,7 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Abrir el puerto 80 del contendor
-EXPOSE 5000
+EXPOSE 5001
 
 # Injectar variable de configuracion para flask
 ENV FLASK_APP=microservice.py
