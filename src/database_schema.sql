@@ -1,9 +1,15 @@
-DROP DATABASE IF EXISTS library;
+IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'myAPI')
+BEGIN
+    CREATE DATABASE [DataBase]
+END
 
-CREATE DATABASE library;
+USE [DataBase]
 
-CREATE TABLE library.books (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    ISBN VARCHAR(10) NOT NULL,
-    Title VARCHAR(64) NOT NULL
-);
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='books' and xtype='U')
+BEGIN
+    CREATE TABLE library.books (
+        ID INT AUTO_INCREMENT PRIMARY KEY,
+        ISBN VARCHAR(10) NOT NULL,
+        Title VARCHAR(64) NOT NULL
+    );
+END

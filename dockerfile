@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 5001
 
 # Injectar variable de configuracion para flask
-ENV FLASK_APP=microservice.py
+ENV FLASK_APP=books.py
 
 # Iniciar el servicio
 CMD [ "flask", "run", "--host=0.0.0.0" ]
