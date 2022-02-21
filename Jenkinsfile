@@ -13,6 +13,7 @@ node {
     }
     stage('Deploy') {
         sh 'terraform init'
-        sh 'terraform apply --auto-approve'
+        sh 'terraform plan -out=plan'
+        sh 'terraform apply plan'
     }
 }
