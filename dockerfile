@@ -7,7 +7,8 @@ COPY ./src/ /usr/src/books
 WORKDIR /usr/src/books
 
 # Instalar flask y sus dependencias.
-RUN pip install --no-cache-dir -r ./src/requirements.txt
+RUN python -m pip install --upgrade pip
+RUN pip install --no-cache-dir -r ./requirements.txt
 
 # Abrir el puerto 80 del contendor
 EXPOSE 5001
