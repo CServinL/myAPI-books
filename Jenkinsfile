@@ -1,13 +1,13 @@
 node {
     checkout scm 
     stage('Build') {
-        docker build . -t latest
+        sh 'docker build . -t latest'
     }
     stage('Test') {
         
     }
     stage('Deploy') {
-        terraform init
-        terraform apply --auto-approve
+        sh 'terraform init'
+        sh 'terraform apply --auto-approve'
     }
 }
