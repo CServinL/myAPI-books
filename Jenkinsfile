@@ -1,10 +1,15 @@
 node {
-    checkout scm 
+    def app
+    staget('Clone') {
+        checkout scm 
+    }
     stage('Build') {
-        sh 'docker build . -t latest'
+        app = docker.build("docker build . -t latest")
     }
     stage('Test') {
-        
+        app.inside {
+            sh 'pip list'
+        }
     }
     stage('Deploy') {
         sh 'terraform init'
