@@ -5,7 +5,7 @@ resource "docker_container" "books" {
   image = "myapi-books:latest"
   name  = "myapi-books"
   ports {
-    internal = 5001
+    internal = 5000
     external = 5001
   }
   env = [
