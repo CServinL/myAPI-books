@@ -2,8 +2,8 @@
 variable "mysql_ip" { type = string }
 
 resource "docker_container" "books" {
-  image = "myAPI-books:latest"
-  name  = "myAPI-books"
+  image = "myapi-books:latest"
+  name  = "myapi-books"
   ports {
     internal = 5001
     external = 5001
