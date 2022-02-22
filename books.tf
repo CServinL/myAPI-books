@@ -14,7 +14,4 @@ resource "docker_container" "books" {
       "MYSQL_USER=root",
       "MYSQL_PASSWORD=abcD_1234",
       ]
-  depends_on = [
-    docker_image.books
-  ]
 }
