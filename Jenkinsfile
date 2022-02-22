@@ -13,7 +13,7 @@ node {
     }
     stage('Deploy') {
         sh 'terraform init'
-        sh 'terraform plan -out=plan -var "mysql_ip=%mysql_ip%"'
-        sh 'terraform apply plan -var "mysql_ip=%mysql_ip%"'
+        sh 'terraform plan -out=plan.bin -var "mysql_ip=%mysql_ip%"'
+        sh 'terraform apply -var "mysql_ip=%mysql_ip%" plan.bin'
     }
 }
