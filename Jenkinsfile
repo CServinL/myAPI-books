@@ -12,10 +12,8 @@ node {
         }
     }
     stage('Deploy') {
-        withEnv(['MYSQL_IP=']) {
-            sh 'terraform init'
-            sh 'terraform plan -out=plan'
-            sh 'terraform apply plan -var mysql_ip="$MYSQL_IP"'
-        }
+        sh 'terraform init'
+        sh 'terraform plan -out=plan'
+        sh 'terraform apply plan -var mysql_ip="%mysql_ip%"'
     }
 }
