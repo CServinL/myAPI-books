@@ -12,8 +12,6 @@ node {
         }
     }
     stage('Deploy') {
-        sh 'terraform init'
-        sh 'terraform plan -out=plan.bin -var "mysql_ip=%mysql_ip%"'
-        sh 'terraform apply "plan.bin"'
+        sh 'docker run myapi-books -p 5001:5000 -env "MYSQL_IP=$MYSQL_IP"'
     }
 }
