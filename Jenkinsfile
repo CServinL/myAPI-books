@@ -12,6 +12,6 @@ node {
         }
     }
     stage('Deploy') {
-        sh 'docker run myapi-books -p 5001:5000 -env "MYSQL_IP=$MYSQL_IP"'
+        sh 'docker run -p 5001:5000 -d --rm --name myapi-books myapi-books -env "MYSQL_IP=$MYSQL_IP"'
     }
 }
