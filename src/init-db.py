@@ -11,7 +11,6 @@ if __name__ == '__main__':
     f = open('database_schema.sql', 'r')
     cur = cnx.cursor()
     cur.execute(f.read())
-    cnx.commit()
     cnx.close()
     f.close()
     print("Initialized the database.\n")
