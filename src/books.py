@@ -15,7 +15,7 @@ def before_request():
             port       =os.environ['MYSQL_PORT'],
             user       =os.environ['MYSQL_USER'],
             password   =os.environ['MYSQL_PASSWORD'],
-            database   ="library"
+            database   ="myapi-books"
             )
 
 @app.teardown_request
