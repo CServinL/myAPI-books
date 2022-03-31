@@ -1,4 +1,5 @@
 import requests
+import json
 import sys
 
 
@@ -17,6 +18,7 @@ def main():
         TestOK = False
     if TestOK == False:
         print('Failed')
+        sys.exit(1)
     else:
         print('Passed')
 
@@ -33,13 +35,15 @@ def main():
         print('Passed')
 
     print('Test 3 - Get book by ISBN')
+    TestOK = False
     req = requests.get(f'{baseurl}/book?isbn=0618346252')
-    if req.status_code != 200:
-        TestOK = False
-    if req.text != '[{"id": 1, "isdn": "0618346252", "title": "The Fellowship of the Ring"}]':
-        TestOK = False
+    if req.status_code == 200:
+        robj = json.loads(req.text)
+        if robj[0]['isdn'] == "0618346252" and robj[0]['title'] == "The Fellowship of the Ring":
+            TestOK = True
     if TestOK == False:
         print('Failed')
+        sys.exit(1)
     else:
         print('Passed')
 
